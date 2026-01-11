@@ -1,10 +1,9 @@
 import HeroSection from '@/components/HeroSection'
-import AboutSection from '@/components/AboutSection'
+import AboutSection from '@/components/AboutSection1'
 import ServicesSection from '@/components/ServicesSection'
 import LocationsMap from '@/components/LocationsMap'
 import RoomGallery from '@/components/RoomGallery'
-import CTASection from '@/components/CTASection'
-
+import CallToAction from '@/components/CallToAction'
 
 export default function HomePage() {
   return (
@@ -14,7 +13,7 @@ export default function HomePage() {
       <ServicesSection />
       <LocationsMap />
       <RoomGallery />
-      <CTASection />
+      <CallToAction />
     </div>
   )
 }

@@ -24,3 +24,63 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* Add smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8FAF9B;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1F3A5F;
+}
+
+/* app/globals.css */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animated-gradient-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.animated-gradient-bg::before,
+.animated-gradient-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.animated-gradient-bg::before {
+  background: linear-gradient(45deg, #1F3A5F 0%, #8FAF9B 100%);
+  opacity: 0.3;
+  animation: gradientShift 15s ease infinite;
+  background-size: 200% 200%;
+}
+
+.animated-gradient-bg::after {
+  background: linear-gradient(135deg, #8FAF9B 0%, #C6A75E 50%, #1F3A5F 100%);
+  opacity: 0.2;
+  animation: gradientShift 20s ease infinite reverse;
+  background-size: 200% 200%;
+}
