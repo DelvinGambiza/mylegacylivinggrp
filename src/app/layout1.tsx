@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import NavLink from '@/components/NavLink'
-import Image from 'next/image'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,23 +20,23 @@ export default function RootLayout({
       <body className={`${inter.className} bg-[#FAFAF7]`}>
         {/* Modern Fixed Navbar - Clean White with subtle shadow */}
         <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-[#E5E7EB]/20">
-          <nav className="max-w-8xl mx-auto px-4 sm:px-8 lg:px-10">
+          <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-20">
               {/* Modern Logo - Minimalist */}
               <div className="flex-shrink-0">
                 <a href="/" className="flex items-center space-x-3 group">
                   {/* Abstract house icon */}
-                  <div className="flex-shrink-0">
-  
-    {/* Your custom logo - adjust padding/margin as needed */}
-    <div className="flex items-center">
-  <img 
-    src="/logo_full.png"
-    alt="My Legacy Living Group"
-    className="h-26 w-auto object-contain"/>
-</div>
-   
-</div>
+                  <div className="relative">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#8FAF9B] to-[#8FAF9B]/80 flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+                      {/* Door */}
+                      <div className="w-4 h-6 bg-[#C6A75E] rounded-lg relative">
+                        {/* Door handle */}
+                        <div className="absolute top-2 -right-1 w-2 h-2 rounded-full bg-white/80"></div>
+                      </div>
+                    </div>
+                    {/* Roof accent */}
+                    <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-b-[6px] border-l-transparent border-r-transparent border-b-[#C6A75E]"></div>
+                  </div>
                   
                   
                   {/* Text logo - stacked for modern look */}

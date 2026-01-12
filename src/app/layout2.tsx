@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import NavLink from '@/components/NavLink'
-import Image from 'next/image'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,22 +20,25 @@ export default function RootLayout({
       <body className={`${inter.className} bg-[#FAFAF7]`}>
         {/* Modern Fixed Navbar - Clean White with subtle shadow */}
         <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-[#E5E7EB]/20">
-          <nav className="max-w-8xl mx-auto px-4 sm:px-8 lg:px-10">
+          <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-20">
               {/* Modern Logo - Minimalist */}
               <div className="flex-shrink-0">
                 <a href="/" className="flex items-center space-x-3 group">
                   {/* Abstract house icon */}
                   <div className="flex-shrink-0">
-  
+  <a href="/" className="flex items-center space-x-3 group">
     {/* Your custom logo - adjust padding/margin as needed */}
-    <div className="flex items-center">
-  <img 
-    src="/logo_full.png"
-    alt="My Legacy Living Group"
-    className="h-26 w-auto object-contain"/>
-</div>
+    <div className="w-10 h-10 flex items-center justify-center">
+      {/* Using img tag - replace with your logo filename */}
+      <img 
+        src="/logo_full.png" // Change this to your logo filename
+        alt="My Legacy Living Group"
+        className="h-8 w-auto object-contain" // Adjust height as needed
+      />
+    </div>
    
+  </a>
 </div>
                   
                   

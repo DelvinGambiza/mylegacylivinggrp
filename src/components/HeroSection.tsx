@@ -9,7 +9,7 @@ export default function HeroSection() {
             Welcome to My Legacy Living Group
           </h3>
           <p className="text-xl text-[#E5E7EB] mb-8 max-w-3xl mx-auto">
-            We provide dignified, respectful support and safe, structured housing 
+            We offer dignified, respectful support and safe, structured housing 
             that give residents the space and structure they need to rebuild, grow, 
             and create lasting stability.
           </p>
