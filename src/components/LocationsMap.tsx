@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import GoogleMapEmbed from './GoogleMapEmbed.tsx' // or StaticGoogleMap
+import GoogleMapEmbed from './GoogleMapEmbed' // or StaticGoogleMap
 
 export default function LocationsMap() {
   const locations = [
