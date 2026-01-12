@@ -1,9 +1,22 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 
-export default function ApplyPage() {
+// Create a loading fallback component
+function LoadingFallback() {
+  return (
+    <div className="min-h-screen bg-[#FAFAF7] flex items-center justify-center">
+      <div className="text-center">
+        <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#1F3A5F] mb-4"></div>
+        <p className="text-[#2E2E2E]">Loading application form...</p>
+      </div>
+    </div>
+  )
+}
+
+// Main content component
+function ApplyContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [step, setStep] = useState(1)
@@ -84,6 +97,16 @@ export default function ApplyPage() {
     agree_terms: false,
     agree_privacy_policy: false
   })
+
+  // Update room_id when searchParams changes
+  useEffect(() => {
+    if (roomId) {
+      setFormData(prev => ({
+        ...prev,
+        room_id: roomId
+      }))
+    }
+  }, [roomId])
 
   // Mock function to submit to your API
   const submitApplication = async () => {
@@ -716,5 +739,14 @@ export default function ApplyPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+// Main page component with Suspense
+export default function ApplyPage() {
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <ApplyContent />
+    </Suspense>
   )
 }
