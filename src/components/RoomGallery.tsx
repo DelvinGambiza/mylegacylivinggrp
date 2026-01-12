@@ -14,7 +14,8 @@ const mockRooms = [
     description: 'Private studio with ensuite bathroom and kitchenette. Perfect for individuals seeking independence with support.',
     features: ['Private Bathroom', 'Kitchenette', 'Wi-Fi', 'Utilities Included', '24/7 Support'],
     image: '/1.jpg',
-    size: '300 sq ft'
+    size: '300 sq ft',
+    availability_status: 'Available'
   },
   {
     id: '2',
@@ -25,7 +26,8 @@ const mockRooms = [
     description: 'Shared suite with two bedrooms and shared living space. Great for building community connections.',
     features: ['Shared Bathroom', 'Living Room', 'Kitchen Access', 'Laundry', 'Community Areas'],
     image: '/2.jpg',
-    size: '400 sq ft'
+    size: '400 sq ft',
+    availability_status: 'Available'
   },
   {
     id: '3',
@@ -36,7 +38,8 @@ const mockRooms = [
     description: 'Standard single room with shared common areas. Includes all amenities and support services.',
     features: ['Shared Bathroom', 'Common Kitchen', '24/7 Support', 'Wi-Fi', 'Housekeeping'],
     image: '/1.jpg',
-    size: '250 sq ft'
+    size: '250 sq ft',
+    availability_status: 'Available'
   },
   {
     id: '4',
@@ -47,7 +50,8 @@ const mockRooms = [
     description: 'Spacious deluxe suite with private balcony and upgraded amenities.',
     features: ['Private Bathroom', 'Full Kitchen', 'Balcony', 'Premium Furnishings', 'Utilities Included'],
     image: '/2.jpg',
-    size: '450 sq ft'
+    size: '450 sq ft',
+    availability_status: 'Available'
   },
   {
     id: '5',
@@ -58,7 +62,8 @@ const mockRooms = [
     description: 'Companion-style room for those who prefer shared living arrangements.',
     features: ['Shared Bathroom', 'Shared Kitchen', 'Social Activities', 'Support Groups', 'Laundry'],
     image: '/1.jpg',
-    size: '350 sq ft'
+    size: '350 sq ft',
+    availability_status: 'Available'
   },
   {
     id: '6',
@@ -69,7 +74,8 @@ const mockRooms = [
     description: 'Fully accessible room designed for mobility needs with additional support features.',
     features: ['Wheelchair Accessible', 'Adaptive Bathroom', 'Emergency Call System', '24/7 Care', 'Utilities'],
     image: '/2.jpg',
-    size: '350 sq ft'
+    size: '350 sq ft',
+    availability_status: 'Available'
   }
 ]
 
