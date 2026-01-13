@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import { supabase, getUser } from '@/lib/supabase'
+import AdminNavLink from '@/components/AdminNavLink' // You'll need to create this component
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true)
@@ -146,58 +147,120 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   console.log('✅ Rendering admin layout for:', userEmail)
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#FAFAF7] to-[#F0F4F1]">
-      {/* Admin Header */}
+      {/* Modern Fixed Admin Navbar - Matching main site */}
       <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-[#E5E7EB]/20">
         <nav className="max-w-8xl mx-auto px-4 sm:px-8 lg:px-10">
           <div className="flex justify-between items-center h-20">
-            {/* Logo */}
+            {/* Modern Logo - Matching main site */}
             <div className="flex-shrink-0">
-              <a href="/" className="flex items-center space-x-3 group">
-                <div className="flex items-center">
-                  <img 
-                    src="/logo_full.png"
-                    alt="My Legacy Living Group"
-                    className="h-10 w-auto object-contain"
-                  />
+              <a href="/admin/dashboard" className="flex items-center space-x-3 group">
+                <div className="flex-shrink-0">
+                  {/* Logo container matching main site */}
+                  <div className="flex items-center">
+                    <img 
+                      src="/logo_full.png"
+                      alt="My Legacy Living Group"
+                      className="h-10 w-auto object-contain"
+                    />
+                  </div>
                 </div>
+                
+                {/* Text logo - stacked for modern look */}
                 <div className="flex flex-col">
                   <span className="text-xl font-bold text-[#2E2E2E] tracking-tight">Admin</span>
-                  <span className="text-sm text-[#2E2E2E]/70 tracking-wider">Dashboard</span>
+                  <span className="text-sm text-[#2E2E2E]/70 tracking-wider uppercase letter-spacing-2">Dashboard</span>
                 </div>
               </a>
             </div>
             
-            {/* Admin Navigation */}
+            {/* Desktop Navigation - Clean with subtle hover effects matching main site */}
             <div className="hidden md:flex items-center space-x-1">
-              <a href="/admin/dashboard" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#1F3A5F] rounded-lg hover:bg-gray-50">
-                Dashboard
-              </a>
-              <a href="/admin/rooms" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#1F3A5F] rounded-lg hover:bg-gray-50">
-                Rooms
-              </a>
-              <a href="/admin/users" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#1F3A5F] rounded-lg hover:bg-gray-50">
-                Users
-              </a>
-              <a href="/admin/applications" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#1F3A5F] rounded-lg hover:bg-gray-50">
-                Applications
-              </a>
+              <AdminNavLink href="/admin/dashboard">
+                <span className="flex items-center space-x-2">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                  <span>Dashboard</span>
+                </span>
+              </AdminNavLink>
               
-              {/* User info and logout */}
+              <AdminNavLink href="/admin/rooms">
+                <span className="flex items-center space-x-2">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                  <span>Rooms</span>
+                </span>
+              </AdminNavLink>
+              
+              <AdminNavLink href="/admin/users">
+                <span className="flex items-center space-x-2">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-1.205a8.959 8.959 0 01-4.5 1.194" />
+                  </svg>
+                  <span>Users</span>
+                </span>
+              </AdminNavLink>
+              
+              <AdminNavLink href="/admin/applications">
+                <span className="flex items-center space-x-2">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <span>Applications</span>
+                </span>
+              </AdminNavLink>
+              
+              {/* Back to main site */}
+              <AdminNavLink href="/">
+                <span className="flex items-center space-x-2">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                  </svg>
+                  <span>Back to Site</span>
+                </span>
+              </AdminNavLink>
+              
+              {/* User info and logout - Matching Get Started button style */}
               <div className="ml-6 flex items-center space-x-4">
-                <span className="text-sm text-gray-600">{userEmail}</span>
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#8FAF9B] to-[#8FAF9B]/80 flex items-center justify-center">
+                    <span className="text-white text-sm font-medium">
+                      {userEmail?.charAt(0).toUpperCase()}
+                    </span>
+                  </div>
+                  <span className="text-sm text-[#2E2E2E] font-medium truncate max-w-[120px]">
+                    {userEmail}
+                  </span>
+                </div>
+                
                 <button
                   onClick={handleLogout}
-                  className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-[#1F3A5F] to-[#1F3A5F]/90 rounded-lg hover:shadow-md transition-all duration-200"
+                  className="ml-2 px-4 py-2 bg-gradient-to-r from-[#1F3A5F] to-[#1F3A5F]/90 text-white rounded-lg font-medium hover:shadow-md hover:scale-105 transition-all duration-200 shadow-sm text-sm"
                 >
                   Logout
                 </button>
               </div>
             </div>
+            
+            {/* Mobile menu button - Matching main site */}
+            <div className="md:hidden flex items-center space-x-4">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#8FAF9B] to-[#8FAF9B]/80 flex items-center justify-center">
+                <span className="text-white text-sm font-medium">
+                  {userEmail?.charAt(0).toUpperCase()}
+                </span>
+              </div>
+              <button className="p-2 rounded-lg hover:bg-[#FAFAF7] transition-colors">
+                <svg className="w-6 h-6 text-[#2E2E2E]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
           </div>
         </nav>
       </header>
 
-      {/* Main content */}
+      {/* Main content with top padding */}
       <main className="pt-20">
         <div className="max-w-8xl mx-auto px-4 sm:px-8 lg:px-10 py-8">
           {children}
