@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import NavLink from '@/components/NavLink'
-import Image from 'next/image'
+import Navbar from '@/components/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,109 +18,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-[#FAFAF7]`}>
-        {/* Modern Fixed Navbar - Clean White with subtle shadow */}
-        <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-[#E5E7EB]/20">
-          <nav className="max-w-8xl mx-auto px-4 sm:px-8 lg:px-10">
-            <div className="flex justify-between items-center h-20">
-              {/* Modern Logo - Minimalist */}
-              <div className="flex-shrink-0">
-                <a href="/" className="flex items-center space-x-3 group">
-                  {/* Abstract house icon */}
-                  <div className="flex-shrink-0">
-  
-    {/* Your custom logo - adjust padding/margin as needed */}
-    <div className="flex items-center">
-  <img 
-    src="/logo_full.png"
-    alt="My Legacy Living Group"
-    className="h-26 w-auto object-contain"/>
-</div>
-   
-</div>
-                  
-                  
-                  {/* Text logo - stacked for modern look */}
-                  <div className="flex flex-col">
-                    <span className="text-2xl font-bold text-[#2E2E2E] tracking-tight">My Legacy</span>
-                    <span className="text-sm text-[#2E2E2E]/70 tracking-wider uppercase letter-spacing-2">Living Group</span>
-                  </div>
-                </a>
-              </div>
-              
-              {/* Desktop Navigation - Clean with subtle hover effects */}
-<div className="hidden md:flex items-center space-x-1">
-  <NavLink href="/">
-    <span className="flex items-center space-x-2">
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-      </svg>
-      <span>Home</span>
-    </span>
-  </NavLink>
-  <NavLink href="/rooms">
-    <span className="flex items-center space-x-2">
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-      </svg>
-      <span>Rooms</span>
-    </span>
-  </NavLink>
-  <NavLink href="/apply">
-    <span className="flex items-center space-x-2">
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-      </svg>
-      <span>Apply</span>
-    </span>
-  </NavLink>
-  
-  {/* Add Contact Link */}
-  <NavLink href="/contact">
-    <span className="flex items-center space-x-2">
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-      <span>Contact</span>
-    </span>
-  </NavLink>
-  
-  <NavLink href="/admin/dashboard">
-    <span className="flex items-center space-x-2">
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-      <span>Admin</span>
-    </span>
-  </NavLink>
-  
-  {/* CTA Button */}
-  <a 
-    href="/apply" 
-    className="ml-6 px-6 py-2.5 bg-gradient-to-r from-[#8FAF9B] to-[#8FAF9B]/90 text-white rounded-lg font-medium hover:shadow-md hover:scale-105 transition-all duration-200 shadow-sm"
-  >
-    Get Started
-  </a>
-</div>
-              
-              {/* Mobile menu button - Modern */}
-              <div className="md:hidden">
-                <button className="p-2 rounded-lg hover:bg-[#FAFAF7] transition-colors">
-                  <svg className="w-6 h-6 text-[#2E2E2E]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </nav>
-        </header>
+        {/* Use the Navbar component */}
+        <Navbar />
 
         {/* Main content with top padding */}
         <main className="pt-20">
           {children}
         </main>
 
-        {/* Modern Footer */}
+        {/* Modern Footer - Keep your existing footer */}
         <footer className="bg-[#1F3A5F] text-white">
           <div className="max-w-7xl mx-auto px-4 py-16">
             {/* Footer Grid */}
@@ -143,14 +48,14 @@ export default function RootLayout({
               </div>
 
               {/* Quick Links */}
-<div>
-  <h4 className="font-semibold mb-6 text-lg relative pb-3 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-12 after:h-0.5 after:bg-[#8FAF9B]">Quick Links</h4>
-  <div className="space-y-2">
-    <a href="/apply" className="block text-[#E5E7EB] hover:text-white transition-colors">Apply Now</a>
-    <a href="/rooms" className="block text-[#E5E7EB] hover:text-white transition-colors">View Rooms</a>
-    <a href="/contact" className="block text-[#E5E7EB] hover:text-white transition-colors">Contact Us</a>
-  </div>
-</div>
+              <div>
+                <h4 className="font-semibold mb-6 text-lg relative pb-3 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-12 after:h-0.5 after:bg-[#8FAF9B]">Quick Links</h4>
+                <div className="space-y-2">
+                  <a href="/apply" className="block text-[#E5E7EB] hover:text-white transition-colors">Apply Now</a>
+                  <a href="/rooms" className="block text-[#E5E7EB] hover:text-white transition-colors">View Rooms</a>
+                  <a href="/contact" className="block text-[#E5E7EB] hover:text-white transition-colors">Contact Us</a>
+                </div>
+              </div>
 
               {/* Contact Info */}
               <div>
@@ -214,4 +119,3 @@ export default function RootLayout({
     </html>
   )
 }
-
